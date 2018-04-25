@@ -7,7 +7,8 @@
     "express": "^4.15.3",
     "express-session": "^1.15.3",
     "mongoose": "^5.0.16",
-    "nuxt-edge": "latest"
+    "nuxt-edge": "latest",
+    "qrcode.vue": "^1.6.0"
   },
   "config": {
     "nuxt": {

@@ -25,17 +25,23 @@
       <p><nuxt-link to="/bs">Shoppinglist alkalmazás</nuxt-link></p>
       <b-button variant="primary" @click="logout">Kijelentkezés</b-button>
     </b-alert>
+    <qrcode-vue :value="qrcode_value"></qrcode-vue>
   </div>
 </template>
 
 <script>
+import QrcodeVue from 'qrcode.vue'
 export default {
   data() {
     return {
+      qrcode_value: 'http://www.inf.u-szeged.hu/~tnemeth',
       formError: null,
       formUsername: '',
       formPassword: ''
     }
+  },
+  components: {
+    QrcodeVue
   },
   methods: {
     async login() {

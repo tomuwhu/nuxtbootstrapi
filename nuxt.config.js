@@ -1,6 +1,5 @@
 import bodyParser from 'body-parser'
 import session from 'express-session'
-
 export default {
   head: {
     title: 'Auth Routes',
@@ -13,11 +12,6 @@ export default {
   modules: [
     'bootstrap-vue/nuxt'
   ],
-  /*
-  ** Add server middleware
-  ** Nuxt.js uses `connect` module as server
-  ** So most of express middleware works with nuxt.js server middleware
-  */
   serverMiddleware: [
     // body-parser middleware
     bodyParser.json(),
