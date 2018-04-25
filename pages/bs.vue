@@ -4,10 +4,10 @@
       <div class="col"></div>
       <div class="col-lg-4 col-md-6 text-center">
         <b-alert show><h3>Shopping-list alkalmazás</h3>
-        <b-input v-model="mit" @change="felvesz()"></b-input><hr>
+        <b-input v-model="mit" @keyup.native.enter="felvesz"></b-input><hr>
         <b-button @click="felvesz">Felvesz</b-button>
         </b-alert>
-        <div v-for="elem in $store.state.list">
+        <div v-for="elem in szurtlist">
           {{elem}}
         </div>
       </div>
@@ -26,11 +26,19 @@ export default {
   methods: {
     felvesz() {
       try {
+        if (this.szurtlist.length==0) {
           this.$store.dispatch('bekuld', {mit: this.mit})
           this.mit=''
+        } else console.log(this.szurtlist)
       } catch (e) {
           this.formError = e.message
       }
+    }
+  },
+  computed: {
+    szurtlist() {
+      if (this.mit.length<1) return this.$store.state.list.slice(0,10)
+      else return this.$store.state.list.filter(v => new RegExp(this.mit,'i').test(v))
     }
   }
 }
