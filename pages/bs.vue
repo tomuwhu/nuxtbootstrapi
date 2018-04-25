@@ -4,7 +4,7 @@
       <div class="col"></div>
       <div class="col-lg-4 col-md-6 text-center">
         <b-alert show>Shopping-list alkalmazás</b-alert>
-        <b-input v-model="mit" @keyup.enter="felvesz"></b-input>
+        <b-input v-model="mit" @change="felvesz()"></b-input>
         <br>
         <b-button @click="felvesz">Felvesz</b-button>
         <hr>
@@ -22,15 +22,13 @@ export default {
   middleware: 'auth',
   data () {
     return {
-      mit: "",
-      list: []
+      mit: ""
     }
   },
   methods: {
-    async felvesz() {
+    felvesz() {
       try {
-          console.log(this.mit)
-          await this.$store.dispatch('bekuld', {mit: this.mit})
+          this.$store.dispatch('bekuld', {mit: this.mit})
           this.mit=''
       } catch (e) {
           this.formError = e.message

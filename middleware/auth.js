@@ -1,4 +1,4 @@
-export default function ({ store, error }) {
+export default ({ store, error }) => {
   if (!store.state.authUser) {
     error({
       message: 'You are not connected',

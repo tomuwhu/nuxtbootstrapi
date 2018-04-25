@@ -29,7 +29,6 @@ export default {
       cookie: { maxAge: 6000000 }
     }),
     // Api middleware
-    // We add /api/login & /api/logout routes
     '~/api'
   ]
 }

@@ -1,27 +1,30 @@
 <template>
-  <div class="container">
-    <h1>Please login to see the secret content</h1>
+  <div class="text-center">
+    <br><br>
+    <h2>NuxtJS - Express - Mongoose mintaalkalmazás</h2>
+    <br>
     <form v-if="!$store.state.authUser" @submit.prevent="login">
       <b-alert show>
         <p class="error" v-if="formError">{{ formError }}</p>
-        <p><i>To login, use <b>demo</b> as username and <b>demo</b> as password.</i></p>
-        <div class="row">
-          <div class="col-lg-2 col-md-4">Username:</div>
-          <div class="col-lg-4"><b-input type="text" v-model="formUsername" name="username" /></div>
-          <div class="col-lg-2 col-md-4">Password:</div>
-          <div class="col-lg-4"><b-input type="password" v-model="formPassword" name="password" /></div>
-        </div>
-        <b-button variant="primary" type="submit">Login</b-button>
+        <p><i>Bejelentkezhet <b>demo</b> felhasználónévvel és <b>demo</b> jelszóval.</i></p>
+        <b-input type="text"
+                 placeholder="felhasználónév"
+                 v-model="formUsername"
+                 name="username"
+                 style="width:260px; margin:0 auto;"/>
+        <b-input type="password"
+                 placeholder="jelszó"
+                 v-model="formPassword"
+                 name="password"
+                 style="width:260px; margin:0 auto;"/>
+        <hr>
+        <b-button variant="primary" type="submit">Bejelentkezés</b-button>
       </b-alert>
     </form>
-    <b-alert show v-else>
-      Hello {{ $store.state.authUser.username }}!
-      <pre>I am the secret content, I am shown only when the use is connected.</pre>
-      <p><i>You can also refresh this page, you'll still be connected!</i></p>
-      <b-button variant="primary" @click="logout">Logout</b-button>
+    <b-alert show v-else class="text-center">
+      <p><nuxt-link to="/bs">Shoppinglist alkalmazás</nuxt-link></p>
+      <b-button variant="primary" @click="logout">Kijelentkezés</b-button>
     </b-alert>
-    <p><nuxt-link to="/secret">Super secret page</nuxt-link></p>
-    <p><nuxt-link to="/bs">Shoppinglist alkalmazás</nuxt-link></p>
   </div>
 </template>
 

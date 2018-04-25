@@ -18,7 +18,6 @@ router.use((req, res, next) => {
   next()
 })
 
-// Add POST - /api/login
 router.post('/login', (req, res) => {
   if (req.body.username === 'demo' && req.body.password === 'demo') {
     req.session.authUser = { username: 'demo' }
@@ -31,12 +30,10 @@ router.post('/login', (req, res) => {
   } else res.status(401).json({ message: 'Bad credentials' })
 })
 
-// Add POST - /api/logout
 router.post('/logout', (req, res) => {
   delete req.session.authUser
   res.json({ ok: true })
 })
-
 
 router.post('/proba', (req, res) => {
   const el = new El({ name: req.body.cucc })

@@ -11,9 +11,11 @@ export const mutations = {
   },
   SET_LIST: function (state, list) {
     state.list = list
+    state.list.sort( (a,b)=>a.localeCompare(b) )
   },
   INSERT_LIST: function (state, elem) {
     state.list.push(elem)
+    state.list.sort( (a,b)=>a.localeCompare(b) )
   }
 }
 
