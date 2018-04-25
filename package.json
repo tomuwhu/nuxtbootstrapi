@@ -6,6 +6,7 @@
     "bootstrap-vue": "^2.0.0-rc.8",
     "express": "^4.15.3",
     "express-session": "^1.15.3",
+    "mongoose": "^5.0.16",
     "nuxt-edge": "latest"
   },
   "config": {

@@ -2,6 +2,10 @@ import express from 'express'
 
 // Create express router
 const router = express.Router()
+const mongoose = require('mongoose')
+mongoose.connect('mongodb://localhost/shoppinglist')
+
+const El = mongoose.model('element', { name: String })
 
 // Transform req & res to have the same API as express
 // So we can use res.status() & res.json()
@@ -18,17 +22,24 @@ router.use((req, res, next) => {
 router.post('/login', (req, res) => {
   if (req.body.username === 'demo' && req.body.password === 'demo') {
     req.session.authUser = { username: 'demo' }
-    console.log('be')
-    return res.json({ username: 'demo' })
-  }
-  res.status(401).json({ message: 'Bad credentials' })
+    El.find({}).then( arr => {
+        let l=[]
+        arr.forEach( v=> l.push(v.name))
+        res.json({ username: 'demo', list: l })
+    })
+  } else res.status(401).json({ message: 'Bad credentials' })
 })
 
 // Add POST - /api/logout
 router.post('/logout', (req, res) => {
   delete req.session.authUser
-  console.log('ki')
   res.json({ ok: true })
+})
+
+
+router.post('/proba', (req, res) => {
+  const el = new El({ name: req.body.cucc })
+  el.save().then( () => res.json({ ok: true }) )
 })
 
 // Export the server middleware
