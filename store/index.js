@@ -23,7 +23,7 @@ export const actions = {
   nuxtServerInit({ commit }, { req }) {
     if (req.session && req.session.authUser) {
       commit('SET_USER', req.session.authUser)
-      commit('SET_LIST', ['semmi','minden'])
+      commit('SET_LIST', req.session.list)
     }
   },
   async login({ commit }, { username, password }) {
@@ -43,8 +43,8 @@ export const actions = {
     commit('SET_USER', null)
   },
   async proba({ commit }, { mit }) {
-    commit('INSERT_LIST', mit)
     await axios.post('/api/proba',{cucc: mit})
+    commit('INSERT_LIST', mit)
   }
 
 }

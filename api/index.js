@@ -25,6 +25,7 @@ router.post('/login', (req, res) => {
     El.find({}).then( arr => {
         let l=[]
         arr.forEach( v=> l.push(v.name))
+        req.session.list=l
         res.json({ username: 'demo', list: l })
     })
   } else res.status(401).json({ message: 'Bad credentials' })
