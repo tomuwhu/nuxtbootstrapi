@@ -28,9 +28,9 @@ export const actions = {
   },
   async login({ commit }, { username, password }) {
     try {
-      const resp = await axios.post('/api/login', { username, password })
-      commit('SET_USER', resp.data.username)
-      commit('SET_LIST', resp.data.list)
+      const { data } = await axios.post('/api/login', { username, password })
+      commit('SET_USER', data.username)
+      commit('SET_LIST', data.list)
     } catch (error) {
       if (error.response && error.response.status === 401) {
         throw new Error('Bad credentials')
@@ -42,7 +42,7 @@ export const actions = {
     await axios.post('/api/logout')
     commit('SET_USER', null)
   },
-  async proba({ commit }, { mit }) {
+  async bekuld({ commit }, { mit }) {
     await axios.post('/api/proba',{cucc: mit})
     commit('INSERT_LIST', mit)
   }

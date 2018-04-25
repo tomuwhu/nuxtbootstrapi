@@ -21,7 +21,7 @@
       <b-button variant="primary" @click="logout">Logout</b-button>
     </b-alert>
     <p><nuxt-link to="/secret">Super secret page</nuxt-link></p>
-    <p><nuxt-link to="/bs">Bootstrap</nuxt-link></p>
+    <p><nuxt-link to="/bs">Shoppinglist alkalmazás</nuxt-link></p>
   </div>
 </template>
 

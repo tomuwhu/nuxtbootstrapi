@@ -40,7 +40,10 @@ router.post('/logout', (req, res) => {
 
 router.post('/proba', (req, res) => {
   const el = new El({ name: req.body.cucc })
-  el.save().then( () => res.json({ ok: true }) )
+  el.save().then( () => {
+    req.session.list.push(req.body.cucc)
+    res.json({ ok: true })
+  } )
 })
 
 // Export the server middleware

@@ -4,9 +4,9 @@
       <div class="col"></div>
       <div class="col-lg-4 col-md-6 text-center">
         <b-alert show>Shopping-list alkalmazás</b-alert>
-        <b-input v-model="mit"></b-input>
+        <b-input v-model="mit" @keyup.enter="felvesz"></b-input>
         <br>
-        <b-button @click="proba">Felvesz</b-button>
+        <b-button @click="felvesz">Felvesz</b-button>
         <hr>
         <div v-for="elem in $store.state.list">
           {{elem}}
@@ -27,12 +27,13 @@ export default {
     }
   },
   methods: {
-    async proba() {
+    async felvesz() {
       try {
-          await this.$store.dispatch('proba', {mit: this.mit})
+          console.log(this.mit)
+          await this.$store.dispatch('bekuld', {mit: this.mit})
           this.mit=''
       } catch (e) {
-        this.formError = e.message
+          this.formError = e.message
       }
     }
   }
