@@ -38,7 +38,12 @@ export default {
   computed: {
     szurtlist() {
       if (this.mit.length<1) return this.$store.state.list.slice(0,10)
-      else return this.$store.state.list.filter(v => new RegExp(this.mit,'i').test(v))
+      else {
+        let t = this.$store.state.list
+                    .filter(v => new RegExp(this.mit,'i').test(v))
+            t.sort( (a,b) => a.localeCompare(b) )    
+        return t.slice(0,10)
+      }
     }
   }
 }
