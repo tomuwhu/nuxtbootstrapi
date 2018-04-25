@@ -1,7 +1,7 @@
 export default ({ store, error }) => {
   if (!store.state.authUser) {
     error({
-      message: 'You are not connected',
+      message: 'Nincs bejelentkezve!',
       statusCode: 403
     })
   }

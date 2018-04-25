@@ -3,11 +3,10 @@
     <div class="row">
       <div class="col"></div>
       <div class="col-lg-4 col-md-6 text-center">
-        <b-alert show>Shopping-list alkalmazás</b-alert>
-        <b-input v-model="mit" @change="felvesz()"></b-input>
-        <br>
+        <b-alert show><h3>Shopping-list alkalmazás</h3>
+        <b-input v-model="mit" @change="felvesz()"></b-input><hr>
         <b-button @click="felvesz">Felvesz</b-button>
-        <hr>
+        </b-alert>
         <div v-for="elem in $store.state.list">
           {{elem}}
         </div>
@@ -16,7 +15,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   middleware: 'auth',

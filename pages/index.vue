@@ -4,8 +4,8 @@
     <h2>NuxtJS - Express - Mongoose mintaalkalmazás</h2>
     <br>
     <form v-if="!$store.state.authUser" @submit.prevent="login">
+      <b-alert show variant="danger" v-if="formError">{{ formError }}</b-alert>
       <b-alert show>
-        <p class="error" v-if="formError">{{ formError }}</p>
         <p><i>Bejelentkezhet <b>demo</b> felhasználónévvel és <b>demo</b> jelszóval.</i></p>
         <b-input type="text"
                  placeholder="felhasználónév"
@@ -61,12 +61,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.container {
-  padding: 100px;
-}
-.error {
-  color: red;
-}
-</style>

@@ -1,10 +1,8 @@
 import axios from 'axios'
-
 export const state = () => ({
   authUser: null,
   list: []
 })
-
 export const mutations = {
   SET_USER: function (state, user) {
     state.authUser = user
@@ -18,10 +16,7 @@ export const mutations = {
     state.list.sort( (a,b)=>a.localeCompare(b) )
   }
 }
-
-
 export const actions = {
-  // nuxtServerInit is called by Nuxt.js before server-rendering every page
   nuxtServerInit({ commit }, { req }) {
     if (req.session && req.session.authUser) {
       commit('SET_USER', req.session.authUser)
@@ -35,7 +30,7 @@ export const actions = {
       commit('SET_LIST', data.list)
     } catch (error) {
       if (error.response && error.response.status === 401) {
-        throw new Error('Bad credentials')
+        throw new Error('Hibás felhasználónév vagy jelszó')
       }
       throw error
     }
