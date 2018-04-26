@@ -9,6 +9,9 @@ export default {
       { hid: 'description', content: 'Példaprogram' }
     ]
   },
+  css: [
+    '~/css/main.css'
+  ],
   modules: [
     'bootstrap-vue/nuxt'
   ],
