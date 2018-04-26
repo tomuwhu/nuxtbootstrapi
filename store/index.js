@@ -9,11 +9,11 @@ export const mutations = {
   },
   SET_LIST(state, list) {
     state.list = list
-    state.list.sort( (a,b)=>a.localeCompare(b) )
+    state.list.sort( (a,b)=>a.name.localeCompare(b.name) )
   },
   INSERT_LIST(state, elem) {
     state.list.push(elem)
-    state.list.sort( (a,b)=>a.localeCompare(b) )
+    state.list.sort( (a,b)=>a.name.localeCompare(b.name) )
   }
 }
 export const actions = {
@@ -40,8 +40,12 @@ export const actions = {
     commit('SET_USER', null)
   },
   async bekuld({ commit }, { mit }) {
-    await axios.post('/api/proba',{cucc: mit})
-    commit('INSERT_LIST', mit)
+    let { data } = await axios.post('/api/felvesz',{cucc: mit})
+    commit('INSERT_LIST', data)
+  },
+  async torol({ commit }, { mit }) {
+    let { data } = await axios.post('/api/torol',{cucc: mit})
+    commit('SET_LIST', data)
   }
 
 }

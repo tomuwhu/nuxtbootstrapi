@@ -4,10 +4,10 @@
      <b-navbar-nav>
         <b-navbar-nav>
           <b-nav-item href="/"
-                      :active="$route.path=='/'">Kezdőlap</b-nav-item>
+                      :active="$route.name=='index'">Kezdőlap</b-nav-item>
           <b-nav-item href="/bs"
                       :disabled="!$store.state.authUser"
-                      :active="$route.path=='/bs'">Shopping-list</b-nav-item>
+                      :active="$route.name=='bs'">Shopping-list</b-nav-item>
         </b-navbar-nav>
      </b-navbar-nav>
     </b-navbar>

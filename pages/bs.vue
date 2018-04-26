@@ -8,9 +8,13 @@
         <b-input v-model="mit" @keyup.native.enter="felvesz"></b-input><hr>
         <b-button @click="felvesz">Felvesz</b-button>
         </b-alert>
-        <div v-for="elem in szurtlist">
-          {{elem}}
-        </div>
+        <b-alert show variant="success">
+          <div v-for="elem in szurtlist" class="row">
+            <div class="col text-left">{{elem.name}}</div>
+            <div class="col text-right"><b style='color:red; cursor:pointer;'
+               @click="torol(elem._id)">x</b></div>
+          </div>
+        </b-alert>
       </div>
       <div class="col"></div>
     </div>
@@ -34,6 +38,9 @@ export default {
       } catch (e) {
           this.formError = e.message
       }
+    },
+    torol(e) {
+      this.$store.dispatch('torol', {mit: e})
     }
   },
   computed: {
@@ -42,8 +49,8 @@ export default {
       else {
         let t = this
                 .$store.state.list
-                .filter(v => new RegExp(this.mit,'i').test(v))
-            t   .sort( (a,b) => a.localeCompare(b) )
+                .filter(v => new RegExp(this.mit,'i').test(v.name))
+            t   .sort( (a,b) => a.name.localeCompare(b.name) )
         return t.slice(0,10)
       }
     }

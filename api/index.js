@@ -15,10 +15,8 @@ router.post('/login', (req, res) => {
   if (req.body.username === 'demo' && req.body.password === 'demo') {
     req.session.authUser = { username: 'demo' }
     El.find({}).then( arr => {
-        let l=[]
-        arr.forEach( v=> l.push(v.name))
-        req.session.list=l
-        res.json({ username: 'demo', list: l })
+        req.session.list=arr
+        res.json({ username: 'demo', list: arr })
     })
   } else res.status(401).json({ message: 'x' })
 })
@@ -26,12 +24,20 @@ router.post('/logout', (req, res) => {
   delete req.session.authUser
   res.json({ ok: true })
 })
-router.post('/proba', (req, res) => {
+router.post('/felvesz', (req, res) => {
   const el = new El({ name: req.body.cucc })
-  el.save().then( () => {
-    req.session.list.push(req.body.cucc)
-    res.json({ ok: true })
+  el.save().then( (db) => {
+    req.session.list.push(db)
+    res.json(db)
   } )
+})
+router.post('/torol', (req, res) => {
+  El.find({_id:req.body.cucc}).remove( () => {
+    El.find().then( arr => {
+        req.session.list=arr
+        res.json(arr)
+    })
+  })
 })
 export default {
   path: '/api',
