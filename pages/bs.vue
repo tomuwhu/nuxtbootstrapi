@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col"></div>
       <div class="col-lg-4 col-md-6 text-center">
+        <br>
         <b-alert show><h3>Shopping-list alkalmazás</h3>
         <b-input v-model="mit" @keyup.native.enter="felvesz"></b-input><hr>
         <b-button @click="felvesz">Felvesz</b-button>
