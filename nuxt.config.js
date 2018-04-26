@@ -2,7 +2,7 @@ import bodyParser from 'body-parser'
 import session from 'express-session'
 export default {
   head: {
-    title: 'Auth Routes',
+    title: 'Nuxt példa',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

@@ -12,7 +12,7 @@
           <div v-for="elem in szurtlist" class="row" style="border-bottom:solid 1px #a0d2a3;">
             <div class="col text-left">{{elem.name}}</div>
             <div class="col text-right"><b style='color:red; cursor:pointer;'
-               @click="torol(elem._id)">x</b></div>
+               @click="torol(elem._id)" v-b-popover.hover="elem.name+', nem vonható vissza!'" title='töröl'>x</b></div>
           </div>
         </b-alert>
       </div>
