@@ -4,14 +4,14 @@ export const state = () => ({
   list: []
 })
 export const mutations = {
-  SET_USER: function (state, user) {
+  SET_USER(state, user) {
     state.authUser = user
   },
-  SET_LIST: function (state, list) {
+  SET_LIST(state, list) {
     state.list = list
     state.list.sort( (a,b)=>a.localeCompare(b) )
   },
-  INSERT_LIST: function (state, elem) {
+  INSERT_LIST(state, elem) {
     state.list.push(elem)
     state.list.sort( (a,b)=>a.localeCompare(b) )
   }
