@@ -27,7 +27,9 @@
       <p><nuxt-link to="/bs">Shoppinglist alkalmazás</nuxt-link></p>
       <b-button variant="primary" @click="logout">Kijelentkezés</b-button>
     </b-alert>
-    <qrcode-vue :value="qrcode_value"></qrcode-vue>
+    <qrcode-vue :value="qrcode_value"
+                :foreground="'#058'"
+                :size="120"></qrcode-vue>
   </div>
 </template>
 
