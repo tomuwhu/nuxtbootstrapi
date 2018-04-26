@@ -2,11 +2,13 @@
   <div class="text-center">
     <br><br>
     <h2>
-      <a target="_blank" href="https://nuxtjs.org/">NuxtJS</a> -
+      [<a target="_blank" href="https://nuxtjs.org/">NuxtJS</a> -
       <a target="_blank" href="https://expressjs.com/">ExpressJS</a> -
       <a target="_blank" href="https://vuejs.org/v2/guide/">Vue.js</a> -
-      <a target="_blank" href="https://bootstrap-vue.js.org/">Bootstrap</a> -            
-      <a target="_blank" href="http://mongoosejs.com/">Mongoose mintaalkalmazás</a>
+      <a target="_blank" href="https://vuex.vuejs.org/en/intro.html">Vuex</a> -      
+      <a target="_blank" href="https://bootstrap-vue.js.org/">Bootstrap</a> -
+      <a target="_blank" href="http://mongoosejs.com/">Mongoose</a>]
+       mintaalkalmazás
     </h2>
     <br>
     <form v-if="!$store.state.authUser" @submit.prevent="login">
