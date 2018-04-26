@@ -8,11 +8,13 @@
       <b-alert show>
         <p><i>Bejelentkezhet <b>demo</b> felhasználónévvel és <b>demo</b> jelszóval.</i></p>
         <b-input type="text"
+                 autocomplete="username"
                  placeholder="felhasználónév"
                  v-model="formUsername"
                  name="username"
                  style="width:260px; margin:0 auto;"/>
         <b-input type="password"
+                 autocomplete="current-password"
                  placeholder="jelszó"
                  v-model="formPassword"
                  name="password"
