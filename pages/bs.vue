@@ -9,7 +9,7 @@
         <b-button @click="felvesz">Felvesz</b-button>
         </b-alert>
         <b-alert show variant="success">
-          <div v-for="elem in szurtlist" class="row">
+          <div v-for="elem in szurtlist" class="row" style="border-bottom:solid 1px #a0d2a3;">
             <div class="col text-left">{{elem.name}}</div>
             <div class="col text-right"><b style='color:red; cursor:pointer;'
                @click="torol(elem._id)">x</b></div>
