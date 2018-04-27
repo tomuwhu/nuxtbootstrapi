@@ -21,7 +21,8 @@
 ```
 > npm test
 ```
-[<input style="width:100%" value="http://localhost:3010">](http://localhost:3010)
+###### Böngészőben:
+http://localhost:3010
 
 ##### Bejelentkezés:
 felhasználónév| jelszó
