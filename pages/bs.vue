@@ -34,13 +34,17 @@ export default {
         if (this.szurtlist.length==0) {
           this.$store.dispatch('bekuld', {mit: this.mit})
           this.mit=''
-        } else console.log(this.szurtlist)
+        }
       } catch (e) {
           this.formError = e.message
       }
     },
     torol(e) {
-      this.$store.dispatch('torol', {mit: e})
+      try {
+        this.$store.dispatch('torol', {mit: e})
+      } catch (e) {
+        this.formError = e.message
+      }
     }
   },
   computed: {
