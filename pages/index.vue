@@ -35,9 +35,21 @@
       <p><nuxt-link to="/bs">Shoppinglist alkalmazás</nuxt-link></p>
       <b-button variant="primary" @click="logout">Kijelentkezés</b-button>
     </b-alert>
-    <qrcode-vue :value="qrcode_value"
-                :foreground="'#058'"
-                :size="120"></qrcode-vue>
+    <b-container fluid class="p-4 bg-dark">
+      <b-row>
+        <b-col>
+          <a href="http://www.inf.u-szeged.hu/~tnemeth"
+            target="_blank"><b-img right thumbnail fluid src='/me.jpg' /></a>
+        </b-col>
+        <b-col class="text-left">
+          <qrcode-vue :value="qrcode_value"
+                      :foreground="'#058'"
+                      :size="170"></qrcode-vue>
+        </b-col>
+      </b-row>
+    </b-container>
+    </div>
+
   </div>
 </template>
 
