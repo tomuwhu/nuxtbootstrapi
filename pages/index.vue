@@ -2,7 +2,7 @@
   <div class="text-center">
     <br>
     <h4>
-      [<a target="_blank" href="https://nuxtjs.org/">NuxtJS</a> -
+     [<a target="_blank" href="https://nuxtjs.org/">NuxtJS</a> -
       <a target="_blank" href="https://expressjs.com/">ExpressJS</a> -
       <a target="_blank" href="https://vuejs.org/v2/guide/">Vue.js</a> -
       <a target="_blank" href="https://vuex.vuejs.org/en/intro.html">Vuex</a> -
@@ -49,10 +49,8 @@
       </b-row>
     </b-container>
     </div>
-
   </div>
 </template>
-
 <script>
 import QrcodeVue from 'qrcode.vue'
 export default {

@@ -47,5 +47,4 @@ export const actions = {
     let { data } = await axios.post('/api/torol',{cucc: mit})
     commit('SET_LIST', data)
   }
-
 }
