@@ -35,6 +35,10 @@ export const actions = {
       throw error
     }
   },
+  async newreg({ commit }, { form }) {
+    const { data } = await axios.post('/api/ujreg', { form: form })
+    //commit('SET_USER', data.username)
+  },
   async logout({ commit }) {
     await axios.post('/api/logout')
     commit('SET_USER', null)
