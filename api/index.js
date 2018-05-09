@@ -26,7 +26,7 @@ router.post('/logout', (req, res) => {
 })
 router.post('/felvesz', (req, res) => {
   const el = new El({ name: req.body.cucc })
-  el.save().then( (db) => {
+  el.save().then( db => {
     req.session.list.push(db)
     res.json(db)
   } )

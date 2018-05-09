@@ -5,7 +5,7 @@
       <div class="col-lg-4 col-md-6 text-center">
         <br>
         <b-alert show><h3>Shopping-list alkalmazás</h3>
-        <b-input v-model="mit" @keyup.native.enter="felvesz"></b-input><hr>
+        <b-input v-model="mit" @keyup.native.enter="felvesz()"></b-input><hr>
         <b-button @click="felvesz">Felvesz</b-button>
         </b-alert>
         <b-alert show variant="success">
@@ -23,28 +23,20 @@
 <script>
 export default {
   middleware: 'auth',
-  data () {
+  data() {
     return {
       mit: ""
     }
   },
   methods: {
     felvesz() {
-      try {
         if (this.szurtlist.length==0) {
           this.$store.dispatch('bekuld', {mit: this.mit})
           this.mit=''
         }
-      } catch (e) {
-          this.formError = e.message
-      }
     },
     torol(e) {
-      try {
         this.$store.dispatch('torol', {mit: e})
-      } catch (e) {
-        this.formError = e.message
-      }
     }
   },
   computed: {
